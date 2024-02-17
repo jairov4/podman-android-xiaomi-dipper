@@ -56,13 +56,15 @@ adb install linuxdeploy-2.6.0-259.apk
 ### 7. Install Alpine Linux distribution
 
 Install Alpine Linux distribution using LinuxDeploy.
+Login into the Alpine Linux distribution using the default credentials as displayed in the app.
+Grab the IP address from the app and use it to SSH into the device.
+Then mount the cgroup folder using tmpfs just to calm down crun/podman.
 
 ```shell
 ssh android@<ip_address>
+sudo mkdir -p /sys/fs/cgroup
+sudo mount -t tmpfs cgroup_root /sys/fs/cgroup
 ```
-
-Login into the Alpine Linux distribution using the default credentials as displayed in the app.
-Grab the IP address from the app and use it to SSH into the device.
 
 ### 8. Install Podman
 
